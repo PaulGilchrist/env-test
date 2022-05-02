@@ -4,7 +4,7 @@ var path = require('path');
 const app = express();
 
 // Environment variables
-const port = process.env.port ?? 8080;
+const port = process.env.port ?? 80;
 
 // Enable All CORS Requests
 app.use(cors())
