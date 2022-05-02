@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: env-test
+  # namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: env-test # has to match .spec.template.metadata.labels
+  template:
+    metadata:
+      labels:
+        app: env-test # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: env-test
+        env: # Can use this to test environment variables set here, or pre-existing within the container.  Good for confirming Azure key Vault connectivity
+        - name: testKey
+          value: test
+        image: paulgilchrist/env-test:latest
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+        - containerPort: 80
+          name: http

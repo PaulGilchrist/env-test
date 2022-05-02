@@ -1,0 +1,28 @@
+{
+  "name": "env-test",
+  "version": "1.0.0",
+  "description": "Test environment variables exposed to container",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulGilchrist/env-test.git"
+  },
+  "keywords": [
+    "environment",
+    "api",
+    "testing"
+  ],
+  "author": "Paul Gilchrist",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PaulGilchrist/env-test/issues"
+  },
+  "homepage": "https://github.com/PaulGilchrist/env-test#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  }
+}

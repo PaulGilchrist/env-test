@@ -1,0 +1,68 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "env-test API",
+    "description": "Environment Variable Test API",
+    "contact": {
+      "name": "Paul Gilchrist",
+      "url": "https://github.com/PaulGilchrist",
+      "email": "paul.gilchrist@outlook.com"
+    },
+    "version": "1.0.0",
+    "x-providerName": "Azure",
+    "x-schemaVersion": "1.0.0",
+    "x-supportEmail": "paul.gilchrist@outlook.com"
+  },
+  "paths": {
+    "/key": {
+      "get": {
+        "tags": [
+          "Key"
+        ],
+        "summary": "Given an environment variable name, returns its value",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "HOME"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/envVariable"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "envVariable": {
+        "description": "Key/Value pair of environment variable",
+        "type": "object",
+        "properties": {
+          "key": {
+            "description": "Environment variable key",
+            "type": "string"
+          },
+          "value": {
+            "description": "Environment variable value",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
